@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { FaBars } from "react-icons/fa"; // Import an icon for the button
+import { FaBars } from "react-icons/fa"; 
 
 const Navbar2 = () => {
-  // State to manage the visibility of the mobile menu
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Toggle menu visibility
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -17,7 +17,7 @@ const Navbar2 = () => {
   
 </div>
 
-      {/* Desktop Navbar Links */}
+      {}
       <div className="relative z-20 hidden gap-5 mr-5 space-x-4 text-xl lg:flex font-poppins">
         <a
           href="#about"
@@ -45,14 +45,14 @@ const Navbar2 = () => {
         </a>
       </div>
 
-      {/* Mobile Menu Button */}
+      {}
       <div className="relative z-20 flex lg:hidden">
         <button onClick={toggleMenu} className="p-2 text-2xl text-green-700">
           <FaBars />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {}
       <div
         className={`absolute top-0 right-0 w-full bg-green-50 border-t border-gray-200 lg:hidden transition-transform duration-200 transform backdrop-blur-xl ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
