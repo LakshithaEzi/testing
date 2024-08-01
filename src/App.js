@@ -1,13 +1,17 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import Me from "./About/Me";
+//import Header from './component/Header';
+//import Project from './component/Project';
+//import projectData from './component/projectData'; // Assuming you have project data in a separate file
+//import Navbar from './component/Navbar';
+//import Navbar2 from './component/Navbar2';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>sameera lakshitha</h1>
-      <p>LOKU HARSHA</p>
+    <div>
+      <Me />
     </div>
   );
-}
+};
 
 export default App;
