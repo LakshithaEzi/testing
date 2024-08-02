@@ -85,7 +85,7 @@ const Navbar2 = () => {
             className="text-xl text-green-700 font-poppins"
             onClick={toggleMenu}
           >
-            Projects
+            Project
           </a>
         </div>
       </div>
