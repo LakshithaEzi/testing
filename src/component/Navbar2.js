@@ -1,35 +1,30 @@
 import React, { useState } from "react";
-import { FaBars } from "react-icons/fa"; 
+import { FaBars } from "react-icons/fa";
 
 const Navbar2 = () => {
-  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <nav className="sticky top-0 flex items-center justify-between  text-black border-[.5px] rounded-[5px] m-4 backdrop-blur-lg bg-green/50 transition-opacity z-50 align-middle">
+    <nav className="sticky top-0 z-50 flex items-center justify-between text-black align-middle transition-opacity backdrop-blur-lg">
       <div className="relative z-20 flex space-x-4 text-xl align-middle">
-  <img src="https://i.postimg.cc/Jz9PWbSF/s-2-removebg-preview.png" alt="Logo" className="w-[80px] h-[80px]" />
-  
-</div>
+        <img
+          src="https://i.postimg.cc/Jz9PWbSF/s-2-removebg-preview.png"
+          alt="SL"
+          className="w-[80px] h-[80px]"
+        />
+      </div>
 
       {}
-      <div className="relative z-20 hidden gap-5 mr-5 space-x-4 text-xl lg:flex font-poppins">
+      <div className="relative z-20 hidden gap-5 mr-5 space-x-4 text-xl lg:flex font-poppins ">
         <a
           href="#about"
-          className="relative z-20 transition-transform duration-300 ease-in-out transform hover:text-green-700 hover:scale-110"
+          className="relative z-20 transition-transform duration-300 ease-in-out transform hover:bg-black/50 hover:p-[2px] hover:text-white hover:rounded-full text-lg "
         >
           About
-        </a>
-        <a
-          href="#experience"
-          className="relative z-20 transition-transform duration-300 ease-in-out transform hover:text-green-700 hover:scale-110"
-        >
-          Education
         </a>
         <a
           href="#skills"
@@ -37,6 +32,13 @@ const Navbar2 = () => {
         >
           Skills
         </a>
+        <a
+          href="#experience"
+          className="relative z-20 transition-transform duration-300 ease-in-out transform hover:text-green-700 hover:scale-110"
+        >
+          Education
+        </a>
+      
         <a
           href="#projects"
           className="relative z-20 transition-transform duration-300 ease-in-out transform hover:text-green-700 hover:scale-110"
@@ -46,8 +48,11 @@ const Navbar2 = () => {
       </div>
 
       {}
-      <div className="relative z-20 flex lg:hidden">
-        <button onClick={toggleMenu} className="p-2 text-2xl text-green-700">
+      <div className="relative z-20 flex overflow-hidden lg:hidden ">
+        <button
+          onClick={toggleMenu}
+          className="p-2 m-3 text-2xl text-green-700"
+        >
           <FaBars />
         </button>
       </div>
@@ -67,19 +72,20 @@ const Navbar2 = () => {
             About
           </a>
           <a
+            href="/skills"
+            className="text-xl text-green-700 font-poppins"
+            onClick={toggleMenu}
+          >
+            Skills
+          </a>
+          <a
             href="#experience"
             className="text-xl text-green-700 font-poppins"
             onClick={toggleMenu}
           >
             Education
           </a>
-          <a
-            href="#skills"
-            className="text-xl text-green-700 font-poppins"
-            onClick={toggleMenu}
-          >
-            Skills
-          </a>
+
           <a
             href="#projects"
             className="text-xl text-green-700 font-poppins"
@@ -90,7 +96,7 @@ const Navbar2 = () => {
         </div>
       </div>
 
-      <div className="absolute inset-0 z-10 bg-black rounded-full bg-gradient-to-r opacity-30"></div>
+      <div className="m-2 absolute inset-0 z-10 bg-black rounded-[10px] bg-gradient-to-r opacity-50 border-spacing-[.2px]"></div>
     </nav>
   );
 };

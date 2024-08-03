@@ -7,6 +7,7 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 
+
 function ProfileCard() {
   const [text] = useTypewriter({
     words: ["Developer.", "Undergraduate."],
