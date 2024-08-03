@@ -5,16 +5,16 @@ import ProfileCard from "../component/ProfileCard";
 import Timeline from "../component/Timeline";
 import SkillsGrid from "../component/SkillsGrid";
 
-
 export default function Me() {
   return (
-    <div>
+    <div className="min-h-screen ">
       <Navbar2 />
-      <ProfileCard />
-     <SkillsGrid/>
-     <Timeline />
-      <Project />
-      
+      <div className="container p-4 mx-auto">
+        <ProfileCard />
+        <SkillsGrid />
+        <Timeline />
+        <Project />
+      </div>
     </div>
   );
 }
