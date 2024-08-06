@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { IoMdMore } from "react-icons/io";
 
-const Navbar2 = () => {
+const Navbar2 = ({ scrollToSelection, refs }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -12,9 +13,22 @@ const Navbar2 = () => {
     setIsDropdownOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        closeDropdown();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between m-3 text-black align-middle transition-opacity backdrop-blur-lg">
-      <div className="relative z-20 flex space-x-4 text-xl align-middle">
+    <nav className="sticky top-0 z-50 flex items-center justify-between h-[50px] m-[34px] text-white align-middle transition-opacity backdrop-blur-lg">
+      <div className="relative z-20 flex space-x-8 text-xl align-middle">
         <img
           src="https://i.postimg.cc/Jz9PWbSF/s-2-removebg-preview.png"
           alt="SL"
@@ -22,78 +36,83 @@ const Navbar2 = () => {
         />
       </div>
 
-      <div className="relative z-20 hidden gap-5 mr-5 space-x-4 text-xl lg:flex font-poppins">
-        <a
-          href="#about"
-          className="relative z-20 transition-transform duration-300 ease-in-out transform hover:bg-black/50 hover:p-[2px] hover:text-white hover:rounded-full text-lg"
+      <div className="relative z-20 hidden gap-4 mr-5 space-x-4 text-xl lg:flex font-poppins ">
+        <button
+          onClick={() => scrollToSelection(refs.profileRef)}
+          className="relative z-20 transition-transform duration-300 ease-in-out transform  hover:text-green-700 hover:rounded-[20px] text-base w-[80px] h-[70px]  text-black "
         >
           About
-        </a>
-        <a
-          href="#skills"
-          className="relative z-20 transition-transform duration-300 ease-in-out transform hover:text-green-700 hover:scale-110"
+        </button>
+        <button
+          onClick={() => scrollToSelection(refs.skillsRef)}
+          className="relative z-20 transition-transform duration-300 ease-in-out transform  hover:text-green-700 hover:rounded-[20px] text-base w-[80px] h-[70px]  text-black"
         >
           Skills
-        </a>
-        <a
-          href="#experience"
-          className="relative z-20 transition-transform duration-300 ease-in-out transform hover:text-green-700 hover:scale-110"
+        </button>
+        <button
+          onClick={() => scrollToSelection(refs.timelineRef)}
+          className="relative z-20 transition-transform duration-300 ease-in-out transform  hover:text-green-700 hover:rounded-[20px] text-base w-[80px] h-[70px]  text-black"
         >
-          Education
-        </a>
-        <a
-          href="#projects"
-          className="relative z-20 transition-transform duration-300 ease-in-out transform hover:text-green-700 hover:scale-110"
+          Timeline
+        </button>
+        <button
+          onClick={() => scrollToSelection(refs.projectRef)}
+          className="relative z-20 transition-transform duration-300 ease-in-out transform  hover:text-green-700 hover:rounded-[20px] text-base w-[80px] h-[70px]  text-black"
         >
           Projects
-        </a>
-      </div>
-
-      <div className="relative z-20 flex items-center lg:hidden">
-        <button
-          onClick={toggleDropdown}
-          className="p-2 m-3 text-2xl text-black"
-        >
-          <IoMdMore />
         </button>
       </div>
 
-      {isDropdownOpen && (
-        <div className="absolute right-0 z-50 w-48 mt-2 bg-white rounded-lg shadow-lg top-full lg:hidden">
-          <div className="flex flex-col items-center py-2 space-y-2">
-            <a
-              href="#about"
-              className="w-full px-4 py-2 text-lg text-green-700 font-poppins hover:bg-gray-200"
-              onClick={closeDropdown}
+      <div className="relative z-20 lg:hidden">
+        <button onClick={toggleDropdown} className="text-2xl text-green-700">
+          <IoMdMore />
+        </button>
+        {isDropdownOpen && (
+          <div
+            ref={dropdownRef}
+            className="absolute right-0 mt-2 text-black bg-white rounded-md shadow-lg"
+          >
+            <button
+              onClick={() => {
+                scrollToSelection(refs.profileRef);
+                closeDropdown();
+              }}
+              className="block px-4 py-2 hover:bg-gray-100"
             >
               About
-            </a>
-            <a
-              href="#skills"
-              className="w-full px-4 py-2 text-lg text-green-700 font-poppins hover:bg-gray-200"
-              onClick={closeDropdown}
+            </button>
+            <button
+              onClick={() => {
+                scrollToSelection(refs.skillsRef);
+                closeDropdown();
+              }}
+              className="block px-4 py-2 hover:bg-gray-100"
             >
               Skills
-            </a>
-            <a
-              href="#experience"
-              className="w-full px-4 py-2 text-lg text-green-700 font-poppins hover:bg-gray-200"
-              onClick={closeDropdown}
+            </button>
+            <button
+              onClick={() => {
+                scrollToSelection(refs.timelineRef);
+                closeDropdown();
+              }}
+              className="block px-4 py-2 hover:bg-gray-100"
             >
-              Education
-            </a>
-            <a
-              href="#projects"
-              className="w-full px-4 py-2 text-lg text-green-700 font-poppins hover:bg-gray-200"
-              onClick={closeDropdown}
+              Timeline
+            </button>
+            <button
+              onClick={() => {
+                scrollToSelection(refs.projectRef);
+                closeDropdown();
+              }}
+              className="block px-4 py-2 hover:bg-gray-100"
             >
               Projects
-            </a>
+            </button>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
-      <div className="absolute inset-0 z-10 bg-black rounded-[10px] bg-gradient-to-r opacity-50 border-spacing-[.2px]"></div>
+      <div className="absolute inset-0 z-10 bg-white rounded-[10px] bg-gradient-to-r opacity-50 border-spacing-[.2px] "></div>
     </nav>
   );
 };

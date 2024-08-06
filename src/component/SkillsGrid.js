@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import SkillBar from "./SkillBar";
 
 const skills = [
@@ -13,18 +13,6 @@ const skills = [
     level: 70,
     iconPath:
       "https://img.icons8.com/?size=100&id=108784&format=png&color=000000",
-  },
-  {
-    skill: "HTML",
-    level: 85,
-    iconPath:
-      "https://img.icons8.com/?size=100&id=20909&format=png&color=000000",
-  },
-  {
-    skill: "CSS",
-    level: 75,
-    iconPath:
-      "https://img.icons8.com/?size=100&id=21278&format=png&color=000000",
   },
   {
     skill: "Node.js",
@@ -85,7 +73,6 @@ const skills = [
     iconPath:
       "https://img.icons8.com/?size=100&id=zfHRZ6i1Wg0U&format=png&color=000000",
   },
-
   {
     skill: "premiere",
     level: 85,
@@ -99,16 +86,16 @@ const skills = [
       "https://img.icons8.com/?size=100&id=13677&format=png&color=000000",
   },
   {
-    skill: " illustrator",
+    skill: "illustrator",
     level: 85,
     iconPath:
       "https://img.icons8.com/?size=100&id=13631&format=png&color=000000",
   },
 ];
 
-const SkillsGrid = () => {
+const SkillsGrid = forwardRef((props, ref) => {
   return (
-    <div>
+    <div ref={ref}>
       <div className="col-span-2 m-5 text-2xl font-bold font-poppins">
         SKILLS
         <hr className="my-2 border-t-2 border-gray-400" />
@@ -126,6 +113,6 @@ const SkillsGrid = () => {
       </div>
     </div>
   );
-};
+});
 
 export default SkillsGrid;

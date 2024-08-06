@@ -9,7 +9,7 @@ const projectData = [
     description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     imageUrl: 'https://via.placeholder.com/300',
   },
-  // Add more projects as needed
+  
 ];
 
 export default projectData;

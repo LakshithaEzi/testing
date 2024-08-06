@@ -6,7 +6,7 @@ const Header = () => {
       <div className="flex flex-col items-center justify-center p-8 m-4 bg-gray-800 rounded-lg shadow-lg md:flex-row md:items-center">
         <div className="w-full md:w-[45%] flex justify-center md:justify-end mt-8 md:mt-0">
           <img
-            src="https://i.postimg.cc/W3LjyyCz/profile-pic_(5).png" // Make sure the path to your image is correct
+            src="https://i.postimg.cc/W3LjyyCz/profile-pic_(5).png" 
             alt="Profile"
             className="rounded-lg shadow-lg"
           />
